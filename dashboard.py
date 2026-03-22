@@ -12,7 +12,7 @@ st.set_page_config(layout="wide")
 st.markdown("""
             <style>
             .metric-box{
-            background-color: #111827;
+            background-color: #FFFFFF;
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -123,7 +123,7 @@ st.divider()
 #conclusão
 st.markdown("""
 <div style="
-background-color:#111827;
+background-color: #FFFFFF; 
 padding:20px;
 border-radius:10px;
 margin-top:20px;
@@ -137,3 +137,5 @@ indicando maior pressão sobre o sistema de saúde suplementar.
 </p>
 </div>
 """, unsafe_allow_html=True)
+
+#cor preta 111827
