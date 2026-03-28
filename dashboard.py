@@ -81,7 +81,11 @@ graf1 = alt.Chart(df_filtrado).mark_line(point=True, color="green").encode(
     x=alt.X("Períodos:N", title="Ano", axis=alt.Axis(labelAngle=0)),
     y=alt.Y("Beneficiarios:Q",
              title="Total",
-             scale=alt.Scale(zero=False)
+             scale=alt.Scale(
+                domain=[
+                df_filtrado["Beneficiarios"].min()*0.995,
+                df_filtrado["Beneficiarios"].max()*1.005
+                ])
     ),
     tooltip=["Períodos", "Beneficiarios"]
 )
