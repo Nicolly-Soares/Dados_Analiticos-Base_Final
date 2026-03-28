@@ -36,7 +36,7 @@ with col1:
     st.markdown(f"""
     <div class="metric-box">
         <h4>Beneficiários</h4>
-        <h2>{df['Beneficiarios'].iloc[-1]:,.0f}".replace(',', '.')"</h2>
+        <h2>{df['Beneficiarios'].iloc[-1]:,.0f}.replace(",", ".")</h2>
     </div>
     """, unsafe_allow_html=True)
 
