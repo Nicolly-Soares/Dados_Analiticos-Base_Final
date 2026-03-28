@@ -60,16 +60,32 @@ st.divider()
 
 st.markdown("## 🎛️ Filtro")
 
-ano = st.slider(
+ano = st.selectbox(
     "Selecione até qual ano visualizar:",
-    int(df["Períodos"].min()),
-    int(df["Períodos"].max())
+    df["Períodos"].sort_values().unique()
 )
 
+st.markdown(f"### 📊 Análise até {ano}")
+
+# dados filtrados
 df_filtrado = df[df["Períodos"] <= ano]
+df_card = df[df["Períodos"] == ano]
 
-df_filtrado["Períodos"] = df_filtrado["Períodos"].astype(str)
+# crescimento
+df["Crescimento"] = df["Beneficiarios"].pct_change() * 100
 
+# valores dos cards
+valor_benef = df_card["Beneficiarios"].iloc[0]
+valor_benef = f"{valor_benef:,.0f}".replace(",", ".")
+
+valor_vcmh = df_card["VCMH"].iloc[0]
+valor_vcmh = f"{valor_vcmh:.2f}%"
+
+valor_cresc = df_card["Crescimento"].iloc[0]
+if pd.isna(valor_cresc):
+    valor_cresc = "—"
+else:
+    valor_cresc = f"{valor_cresc:.2f}%"
 st.divider()
 
 #graficos
@@ -127,8 +143,8 @@ col3.info("Custos crescem com usuários")
 
 col4, col5, col6= st.columns(3)
 
-col4.success("Queda no VCMH em 2020")
-col5.info("Demanda crescente pressiona custos")
+col4.success("Demanda crescente pressiona custos")
+col5.info("Queda no VCMH em 2020")
 col6.warning("Tendência de alta ao longo prazo")
 
 
