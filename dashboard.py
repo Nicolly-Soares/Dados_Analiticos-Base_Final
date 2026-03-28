@@ -36,7 +36,7 @@ with col1:
     st.markdown(f"""
     <div class="metric-box">
         <h4>Beneficiários</h4>
-        <h2>{df['Beneficiarios'].iloc[-1]:,.0f}".replace(',', '.')</h2>
+        <h2>{df['Beneficiarios'].iloc[-1]:,.0f}".replace(',', '.')"</h2>
     </div>
     """, unsafe_allow_html=True)
 
@@ -77,22 +77,18 @@ st.divider()
 df_filtrado["Períodos"] = df_filtrado["Períodos"].astype(str)
 
 # dos beneficiários
-graf1 = alt.Chart(df_filtrado).mark_line(point=True, color="#22c55e").encode(
+graf1 = alt.Chart(df_filtrado).mark_line(point=True, color="green").encode(
     x=alt.X("Períodos:N", title="Ano", axis=alt.Axis(labelAngle=0)),
-    y=alt.Y("Beneficiarios:Q", title="Total"),
-    tooltip=[
-        alt.Tooltip("Períodos:N", title="Ano"),
-        alt.Tooltip("Beneficiarios:Q", title="Total", format=",.0f")
-    ]
+    y=alt.Y("Beneficiarios:Q",
+             title="Total",
+             scale=alt.Scale(domain=[0, df["Beneficiarios"].max()]*1.1)),
+    tooltip=["Períodos", "Beneficiarios"]
 )
 # gráfico VCMH
 graf2 = alt.Chart(df_filtrado).mark_line(point=True, color="orange").encode(
     x=alt.X("Períodos:N", title="Ano", axis=alt.Axis(labelAngle=0)),
     y=alt.Y("VCMH:Q", title="VCMH (%)"),
-    tooltip=[
-        alt.Tooltip("Períodos:N", title="Ano"),
-        alt.Tooltip("VCMH:Q", title="VCMH (%)", format=".2f")
-    ]
+    tooltip=["Períodos", "VCMH"]
 )
 
 col1, col2 = st.columns(2)
