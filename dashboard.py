@@ -121,13 +121,13 @@ st.markdown("## 📌 Insights")
 
 col1, col2, col3= st.columns(3)
 
-col1.success("Crescimento contínuo de beneficiários")
+col1.success("Crescimento contínuo de beneficiários em 2020")
 col2.warning("Oscilação relevante no VCMH")
 col3.info("Custos crescem com usuários")
 
 col4, col5, col6= st.columns(3)
 
-col4.success("Queda no VCMH e alta no crescimento dos beneficiários em 2020")
+col4.success("Queda no VCMH em 2020")
 col5.info("Demanda crescente pressiona custos")
 col6.warning("Tendência de alta ao longo prazo")
 
