@@ -138,9 +138,16 @@ box-shadow:0px 2px 10px rgba(0,0,0,0.3);
 ">
 <h3>📌 Conclusão</h3>
 <p>
-Observa-se crescimento no número de beneficiários ao longo do período, 
-acompanhado pela elevação dos custos médico-hospitalares (VCMH), 
-indicando maior pressão sobre o sistema de saúde suplementar.
+A análise dos dados evidencia um crescimento recorrente no número de beneficiários de planos de saúde ao longo do período analisado (2018 a 2023). 
+Esse aumento indica uma maior adesão da população ao sistema de saúde suplementar.
+
+Paralelamente, é notório que a variação dos custos médicos-hospitalares (VCMH) apresenta variações ao longo de 2018 a 2023, com momentos de queda e posterior elevação, refletindo a dinâmica dos custos médico-hospitalares.
+
+A combinação desses fatores sugere que, à medida que o número de usuários cresce, os custos associados ao sistema também tendem a aumentar, 
+o que pode gerar maior pressão financeira sobre operadoras e usuários.
+
+Dessa forma, os resultados reforçam a importância do acompanhamento contínuo desses indicadores, 
+visando apoiar a tomada de decisão e o planejamento estratégico no setor de saúde suplementar.
 </p>
 </div>
 """, unsafe_allow_html=True)
