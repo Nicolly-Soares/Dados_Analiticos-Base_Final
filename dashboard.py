@@ -60,58 +60,15 @@ st.divider()
 
 st.markdown("## 🎛️ Filtro")
 
-ano = st.selectbox(
+ano = st.slider(
     "Selecione até qual ano visualizar:",
-    df["Períodos"].sort_values().unique()
+    int(df["Períodos"].min()),
+    int(df["Períodos"].max())
 )
 
-st.markdown(f"### 📊 Análise até {ano}")
-
-# dados filtrados
 df_filtrado = df[df["Períodos"] <= ano]
-df_card = df[df["Períodos"] == ano]
 
-# crescimento
-df["Crescimento"] = df["Beneficiarios"].pct_change() * 100
-
-# valores dos cards
-valor_benef = df_card["Beneficiarios"].iloc[0]
-valor_benef = f"{valor_benef:,.0f}".replace(",", ".")
-
-valor_vcmh = df_card["VCMH"].iloc[0]
-valor_vcmh = f"{valor_vcmh:.2f}%"
-
-valor_cresc = df_card["Crescimento"].iloc[0]
-if pd.isna(valor_cresc):
-    valor_cresc = "—"
-else:
-    valor_cresc = f"{valor_cresc:.2f}%"
-
-    col1, col2, col3 = st.columns(3)
-
-with col1:
-    st.markdown(f"""
-    <div class="metric-box">
-        <h4>Beneficiários</h4>
-        <h2>{valor_benef}</h2>
-    </div>
-    """, unsafe_allow_html=True)
-
-with col2:
-    st.markdown(f"""
-    <div class="metric-box">
-        <h4>VCMH</h4>
-        <h2>{valor_vcmh}</h2>
-    </div>
-    """, unsafe_allow_html=True)
-
-with col3:
-    st.markdown(f"""
-    <div class="metric-box">
-        <h4>Crescimento</h4>
-        <h2>{valor_cresc}</h2>
-    </div>
-    """, unsafe_allow_html=True)
+df_filtrado["Períodos"] = df_filtrado["Períodos"].astype(str)
 
 st.divider()
 
