@@ -60,9 +60,10 @@ st.divider()
 
 st.markdown("## 🎛️ Filtro")
 
-ano = st.sidebar.selectbox(
+ano = st.slider(
     "Selecione até qual ano visualizar:",
-  df["Períodos"].sort_values().unique()
+    int(df["Períodos"].min()),
+    int(df["Períodos"].max())
 )
 
 df_filtrado = df[df["Períodos"] <= ano]
