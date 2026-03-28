@@ -92,11 +92,11 @@ graf2 = alt.Chart(df_filtrado).mark_line(point=True, color="orange").encode(
 col1, col2 = st.columns(2)
 
 with col1:
-    st.subheader("📈 Beneficiários")
+    st.subheader("📈 Total De Beneficiários")
     st.altair_chart(graf1, use_container_width=True)
 
 with col2:
-    st.subheader("📉 VCMH")
+    st.subheader("📉 Variação Dos Custos Médicos-Hospitalares (VCMH)")
     st.altair_chart(graf2, use_container_width=True)
 
     st.markdown("<br><br>", unsafe_allow_html=True)
