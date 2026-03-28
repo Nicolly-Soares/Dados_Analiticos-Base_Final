@@ -125,8 +125,11 @@ col1.success("Crescimento contínuo de beneficiários")
 col2.warning("Oscilação relevante no VCMH")
 col3.info("Custos crescem com usuários")
 
-col4= st.columns(1)[0]
-col4.error("Queda no VCMH e alta no crescimento dos beneficiários em 2020")
+col4, col5, col6= st.columns(3)
+
+col4.success("Queda no VCMH e alta no crescimento dos beneficiários em 2020")
+col5.info("Demanda crescente pressiona custos")
+col6.warning("Tendência de alta ao longo prazo")
 
 
 st.divider()
