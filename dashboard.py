@@ -82,6 +82,7 @@ graf1 = alt.Chart(df_filtrado).mark_line(point=True, color="green").encode(
     y=alt.Y("Beneficiarios:Q",
              title="Total",
              scale=alt.Scale(zero=False)
+    ),
     tooltip=["Períodos", "Beneficiarios"]
 )
 # gráfico VCMH
@@ -139,5 +140,3 @@ indicando maior pressão sobre o sistema de saúde suplementar.
 </p>
 </div>
 """, unsafe_allow_html=True)
-
-#cor preta 111827
