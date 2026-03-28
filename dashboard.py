@@ -86,6 +86,33 @@ if pd.isna(valor_cresc):
     valor_cresc = "—"
 else:
     valor_cresc = f"{valor_cresc:.2f}%"
+
+    col1, col2, col3 = st.columns(3)
+
+with col1:
+    st.markdown(f"""
+    <div class="metric-box">
+        <h4>Beneficiários</h4>
+        <h2>{valor_benef}</h2>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col2:
+    st.markdown(f"""
+    <div class="metric-box">
+        <h4>VCMH</h4>
+        <h2>{valor_vcmh}</h2>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col3:
+    st.markdown(f"""
+    <div class="metric-box">
+        <h4>Crescimento</h4>
+        <h2>{valor_cresc}</h2>
+    </div>
+    """, unsafe_allow_html=True)
+
 st.divider()
 
 #graficos
