@@ -119,7 +119,7 @@ st.divider()
 
 st.markdown("## 📌 Insights")
 
-col1, col2, col3, col4 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 
 col1.success("Crescimento contínuo de beneficiários")
 col2.warning("Oscilação relevante no VCMH")
