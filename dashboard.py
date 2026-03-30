@@ -45,8 +45,8 @@ idx = df.index[df["Períodos"] == ano_card][0]
 if idx > 0:
     crescimento = 0
 else:
-    valor_atual = df.loc[idx, "Beneficiários"]
-    valor_anterior = df.loc[idx - 1, "Beneficiários"]
+    valor_atual = df.loc[idx, "Crescimento"]
+    valor_anterior = df.loc[idx - 1, "Crescimento"]
     crescimento = ((valor_atual - valor_anterior)/valor_anterior) * 100
 
 
