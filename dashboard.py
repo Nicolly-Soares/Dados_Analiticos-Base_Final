@@ -29,8 +29,6 @@ st.markdown("""
 st.title("📊 Dashboard - Saúde Sumplementar")
 st.markdown("Análise de beneficiários e custos médicos-hospitalares (VCMH) entre os anos 2018 a 2023")
 
-st.markdown("##📅 Seleção do ano")
-
 ano_card = st.selectbox(
     "Escolha o ano para visualizar os indicadores:",
     df["Períodos"].sort_values()
@@ -39,6 +37,18 @@ ano_card = st.selectbox(
 #filtrar
 
 df_card = df[df["Períodos"] == ano_card]
+
+#caluco do crescimento
+
+idx = df.index[df["Períodos"] == ano_card][0]
+
+if idx > 0:
+    crescimento = 0
+else:
+    valor_atual = df.loc[idx, "Beneficiários"]
+    valor_anterior = df.loc[idx - 1, "Beneficiários"]
+    crescimento = ((valor_atual - valor_anterior)/valor_anterior) * 100
+
 
 #metricas
 col1, col2, col3 = st.columns(3)
@@ -63,7 +73,7 @@ with col3:
     st.markdown(f"""
     <div class="metric-box">
         <h4>Crescimento</h4>
-        <h2>{df_card['Beneficiarios'].pct_change().mean()*100:.2f}%</h2>
+        <h2>{crescimento:.2f}%</h2>
     </div>
     """, unsafe_allow_html=True)
 
