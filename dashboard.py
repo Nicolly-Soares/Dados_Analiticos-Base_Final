@@ -29,6 +29,17 @@ st.markdown("""
 st.title("📊 Dashboard - Saúde Sumplementar")
 st.markdown("Análise de beneficiários e custos médicos-hospitalares (VCMH) entre os anos 2018 a 2023")
 
+st.markdown("##📅 Seleção do ano")
+
+ano_card = st.selectbox(
+    "Escolha o ano para visualizar os indicadores:",
+    df["Períodos"].sort_values()
+)
+
+#filtrar
+
+df_card = df[df["Períodos"] == ano_card]
+
 #metricas
 col1, col2, col3 = st.columns(3)
 
@@ -36,7 +47,7 @@ with col1:
     st.markdown(f"""
     <div class="metric-box">
         <h4>Beneficiários</h4>
-        <h2>{f"{df['Beneficiarios'].iloc[-1]:,.0f}".replace(",", ".")}</h2>
+        <h2>{f"{df_card['Beneficiarios'].iloc[-1]:,.0f}".replace(",", ".")}</h2>
     </div>
     """, unsafe_allow_html=True)
 
@@ -44,7 +55,7 @@ with col2:
     st.markdown(f"""
     <div class="metric-box">
         <h4>VCMH Médio</h4>
-        <h2>{df['VCMH'].mean():.2f}%</h2>
+        <h2>{df_card['VCMH'].mean():.2f}%</h2>
     </div>
     """, unsafe_allow_html=True)
 
@@ -52,7 +63,7 @@ with col3:
     st.markdown(f"""
     <div class="metric-box">
         <h4>Crescimento</h4>
-        <h2>{df['Beneficiarios'].pct_change().mean()*100:.2f}%</h2>
+        <h2>{df_card['Beneficiarios'].pct_change().mean()*100:.2f}%</h2>
     </div>
     """, unsafe_allow_html=True)
 
