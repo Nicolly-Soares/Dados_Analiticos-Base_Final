@@ -5,6 +5,8 @@ import altair as alt
 #carregamento dos dados 
 df = pd.read_csv("dados_analiticos/base_final.csv")
 
+df = df.sort_values("Períodos").reset_index(drop=True)
+
 st.set_page_config(layout="wide")
 
 #cores e cards
@@ -40,14 +42,18 @@ df_card = df[df["Períodos"] == ano_card]
 
 #caluco do crescimento
 
-idx = df.index[df["Períodos"] == ano_card][0]
+# garantir ordem correta
+df = df.sort_values("Períodos").reset_index(drop=True)
 
-if idx > 0:
+# pegar posição do ano selecionado
+idx = df[df["Períodos"] == ano_card].index[0]
+
+if idx == 0:
     crescimento = 0
 else:
-    valor_atual = df.loc[idx, "Beneficiarios"]
-    valor_anterior = df.loc[idx - 1, "Beneficiarios"]
-    crescimento = ((valor_atual - valor_anterior)/valor_anterior) * 100
+    valor_atual = df.iloc[idx]["Beneficiarios"]
+    valor_anterior = df.iloc[idx - 1]["Beneficiarios"]
+    crescimento = ((valor_atual - valor_anterior) / valor_anterior) * 100
 
 
 #metricas
