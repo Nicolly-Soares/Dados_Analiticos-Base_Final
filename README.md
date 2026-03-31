@@ -31,5 +31,4 @@ Principais insghts:
 - Tendência de alta ao longo prazo
 
 conclusão
-
 Os dados analisados indicam que o crescimento da saúde suplementar no Brasil vem acompanhado por um aumento nos custos médico-hospitalares, o que reforça a importância do monitoramento contínuo desses indicadores para planejamento estratégico e sustentabilidade do setor.
